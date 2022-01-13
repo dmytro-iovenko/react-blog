@@ -1,17 +1,12 @@
 import React, { Component } from "react";
-import Post from './Post';
-import Form from "./Form";
+import Filter from "./Filter";
 
 
 class BlogPosts extends Component {
     render() {
-
-        const posts = this.props.posts;
-
         return (
             <div>
-                <Form setPosts={this.props.setPosts}/>
-                {posts.map((post, index) => <Post post={post} key={index} />)}
+                <Filter posts={this.props.posts} setPosts={this.props.setPosts}/>
             </div>
         );
     }

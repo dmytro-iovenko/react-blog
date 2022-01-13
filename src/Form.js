@@ -6,7 +6,8 @@ class Form extends Component {
         this.state = {
             title: '',
             body: '',
-            username: ''
+            username: '',
+            timestamp: ''
         }
     }
 
@@ -15,18 +16,26 @@ class Form extends Component {
     }
 
     handleSubmit = event => {
+        this.state.timestamp = new Date().toLocaleString();
         event.preventDefault();
         this.props.setPosts(this.state);
+        this.setState({
+            title: '',
+            body: '',
+            username: '',
+            timestamp: ''
+        })
+
     }
 
     render() {
         return (
-            <div>
+            <div className='form'>
                 <form onSubmit={this.handleSubmit}>
-                    <input type='text' placeholder='' id='title' value={this.state.title} onChange={this.handleChange} />
-                    <textarea placeholder='' id='body' value={this.state.body} onChange={this.handleChange} />
-                    <input type='text' placeholder='' id='username' value={this.state.username} onChange={this.handleChange} />
-                    <button type='submit'>Submit</button>
+                    <input id='title' type="text" className="form-input" placeholder="Title" value={this.state.title} onChange={this.handleChange} />
+                    <input id='username' type="text" className="form-input" placeholder="Username" value={this.state.username} onChange={this.handleChange} />
+                    <textarea maxLength='500' id='body' className="form-input" placeholder="Post" value={this.state.body} onChange={this.handleChange} />
+                    <input type="submit" value="SUBMIT" />
                 </form>
             </div>
         );
