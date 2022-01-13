@@ -14,15 +14,9 @@ class Form extends Component {
         this.setState({ [event.target.id]: event.target.value })
     }
 
-    // handleNewPost(event) {
-    //     event.preventDefault();
-    //     console.log(this.state)
-
-    // }
-
-    handleSubmit = event => {      ///    onClick ... onChange ... onSubmit
-        event.preventDefault()
-        console.log(this.state)
+    handleSubmit = event => {
+        event.preventDefault();
+        this.props.setPosts(this.state);
     }
 
     render() {

@@ -4,16 +4,16 @@ import BlogPosts from './BlogPosts';
 
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       posts: []
     }
   }
 
-  setPosts(post) {
+  setPosts = (newPost) => {
     this.setState({ 
-      posts: [...this.state.posts, post]
+      posts: [...this.state.posts, newPost]
     });
   }
 
@@ -21,8 +21,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <button onClick={()=>this.setPosts({title: 'sdf', body: 'sdf', username: 'sdfs'})}>Click me</button> */}
-        <BlogPosts posts={this.state.posts} />
+        <BlogPosts posts={this.state.posts} setPosts={this.setPosts}/>
       </div>
     );
   }

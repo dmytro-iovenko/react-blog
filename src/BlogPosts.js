@@ -10,8 +10,8 @@ class BlogPosts extends Component {
 
         return (
             <div>
-                <Form />
-                {posts.map((post,index) => <Post post={post} key={index} />)}
+                <Form setPosts={this.props.setPosts}/>
+                {posts.map((post, index) => <Post post={post} key={index} />)}
             </div>
         );
     }
